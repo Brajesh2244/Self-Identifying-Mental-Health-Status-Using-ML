@@ -32,3 +32,46 @@ It is designed for educational and awareness purposes only and does not replace 
 ---
 
 ## 📂 Project Structure
+
+project-folder/
+│
+├── dataset/
+├── model/
+├── app.py
+├── templates/
+├── static/
+├── requirements.txt
+├── README.md
+└── .gitignore
+
+(or Streamlit URL if used)
+
+---
+
+## 📊 Output
+- Displays mental health category
+- Shows result in bar chart and pie chart
+- Provides basic insights based on prediction
+
+---
+
+## 🚀 Future Enhancements
+- Improve model accuracy with more data
+- Add real-time analytics dashboard
+- Mobile-friendly UI
+- Doctor recommendation system
+- Cloud deployment
+
+---
+
+## ⚠️ Disclaimer
+This project is intended for academic and learning purposes only.  
+It should not be used as a medical diagnosis tool.
+
+---
+
+## 👨‍💻 Author
+**Brajesh Kumar**  
+MCA Graduate | Java | Python | Machine Learning  
+GitHub: https://github.com/Brajesh2244
+
