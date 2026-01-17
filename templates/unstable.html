@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Self Identifying Mental Health Status</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div style="background-color:rgba(0, 0, 0, 0.7); height:fit-content;">
+        <div class="side_bar">
+            <div class="profile">
+                <!-- <div style="padding-top: 30px;">
+            <img src="https://images.pexels.com/photos/8384596/pexels-photo-8384596.jpeg?cs=srgb&dl=pexels-tara-winstead-8384596.jpg&fm=jpg"
+          alt="profile_picture">
+          </div> -->
+                <div class="logo">Psychlogical instability</div>
+            </div>
+            <ul>
+                <li><a href="home"><i class="fas fa-qrcode"></i>Home</a></li>
+                <li><a href="eda"><i class="fas fa-question-circle"></i>EDA</a></li>
+                <li><a href="detector"><i class="fas fa-heart"></i>Diagnosis</a></li>
+                <li><a href="model_parameter"><i class="fas fa-address-book"></i>Model Parameters</a></li>
+                <li><a href="/"><i class="bx bx-log-out"></i>log out</a></li>
+            </ul>
+            <!-- <div class="media_icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div> -->
+
+        </div>
+        <section style="background-color: rgba(0, 0, 0, 0.0); height: 100%;">
+            <div style="padding: 10px;">
+                <div class="header_text" style="text-align:center;letter-spacing:3px;">
+                    Unstable 
+                </div>
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <img src="{{url_for('static',filename='uploads/bar_plot.png')}}" alt=""
+                        height="450" width="650">
+                    
+                </div>
+
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <img src="{{url_for('static',filename='uploads/polar_plot.png')}}" alt=""
+                        height="450" width="650">
+                    
+                </div>
+            </div>
+
+        </section>
+    </div>
+</body>
+
+</html>

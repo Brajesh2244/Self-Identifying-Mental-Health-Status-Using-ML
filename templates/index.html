@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Self Identifying Mental Health Status</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div style="background-color:rgba(0, 0, 0, 0.7); height:fit-content;">
+        <div class="side_bar">
+            <div class="profile">
+                <!-- <div style="padding-top: 30px;">
+            <img src="https://images.pexels.com/photos/8384596/pexels-photo-8384596.jpeg?cs=srgb&dl=pexels-tara-winstead-8384596.jpg&fm=jpg"
+          alt="profile_picture">
+          </div> -->
+                <div class="logo">Self Identifying Mental Health Status</div>
+            </div>
+            <ul>
+                <li><a class="active" href="home"><i class="fas fa-qrcode"></i>Home</a></li>
+                <li><a href="eda"><i class="fas fa-question-circle"></i>EDA</a></li>
+                <li><a href="detector"><i class="fas fa-heart"></i>Diagnosis</a></li>
+                <li><a href="model_parameter"><i class="fas fa-address-book"></i>Model Parameters</a></li>
+                <li><a href="/"><i class="bx bx-log-out"></i>log out</a></li>
+            </ul>
+            <!-- <div class="media_icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div> -->
+
+        </div>
+        <section style="background-color: rgba(0, 0, 0, 0.0);">
+            <div style="padding: 10px;">
+                <div class="header_text" style="text-align:center;letter-spacing:3px;">
+                Self Identifying Mental Health Status
+                </div>
+                <div style="margin-top:20px;font-size: 20px; line-height: 35px;">
+                   <p>
+                    <span style="color: orangered; font-weight: bold; font-size: 23px;">P</span>sychological instability is a major public health problem, affecting millions of people worldwide. Machine learning (ML) techniques have the potential to revolutionize the diagnosis and treatment of psychological instability by providing fast, accurate, and affordable screening tools. This project presents a novel ML-based approach for detecting psychological instability using a stacked model ensemble of three base models: SVM, random forest, and decision tree with xgboost as a meta model.
+                   </p>
+                   <p style="margin-top:25px;">
+                    <span style="color: orangered; font-weight: bold; font-size: 23px;">T</span>The proposed approach is integrated with a web interface developed using HTML/CSS and Flask. The user interface allows users to provide their inputs and receive a probability score for psychological instability. If the probability score is greater than 0.5, the user is asked to answer additional questions to assess the severity of their symptoms and classify the type of psychological instability (depression, anxiety, bipolarity, or PTSD).
+                   </p>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</body>
+
+</html>

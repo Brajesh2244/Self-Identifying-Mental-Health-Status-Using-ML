@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Self Identifying Mental Health Status</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <style>
+        select {
+            width: 550px;
+            height: 40px;
+            padding-left: 10px;
+            margin-top: 8px;
+        }
+
+        .sub {
+            height: 40px;
+            width: 200px;
+
+        }
+
+        label {
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="height:fit-content; width: 100%;background-color:rgba(0, 0, 0, 0.7);">
+
+        <div class="side_bar">
+            <div class="profile">
+                <!-- <div style="padding-top: 30px;">
+            <img src="https://images.pexels.com/photos/8384596/pexels-photo-8384596.jpeg?cs=srgb&dl=pexels-tara-winstead-8384596.jpg&fm=jpg"
+          alt="profile_picture">
+          </div> -->
+                <div class="logo">Self Identifying Mental Health Status</div>
+            </div>
+            <ul>
+                <li><a href="home"><i class="fas fa-qrcode"></i>Home</a></li>
+                <li><a href="eda"><i class="fas fa-question-circle"></i>EDA</a></li>
+                <li><a class="active" href="detector"><i class="fas fa-heart"></i>Diagnosis</a></li>
+                <li><a href="model_parameter"><i class="fas fa-address-book"></i>Model Parameters</a></li>
+                <li><a href="/"><i class="bx bx-log-out"></i>log out</a></li>
+
+            </ul>
+            <!-- <div class="media_icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div> -->
+
+        </div>
+        <section style="background-color:rgba(0, 0, 0, 0.0);height:100%;">
+            <div style="height: auto; width: 900px; margin:auto;">
+                <form action="/submit_d" method="post" style="text-align: center; padding-top: 30px;">
+                    <div>
+                        <label>age</label> <br> <input type="number" name="age" id="age" value="18"
+                            style="height: 40px; width: 550px;padding-left: 10px;">
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <label>Enter Gender</label><br>
+                        <select name="gender" id="Gender">
+                            <option value="MALE">MALE</option>
+                            <option value="FEMALE">FEMALE</option>
+                            <option value="TRANSGENDER">TRANSGENDER</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <label>Country</label><br>
+                        <select name="country" id="country">
+                            <option value="United States">United States</option>
+                            <option value="Canada">Canada</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="Bulgaria">Bulgaria</option>
+                            <option value="France">France</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Russia">Russia</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="Slovenia">Slovenia</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="India">India</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Romania">Romania</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Zimbabwe">Zimbabwe</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Finland">Finland</option>
+                            <option value="Uruguay">Uruguay</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                            <option value="Hungary">Hungary</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Croatia">Croatia</option>
+                            <option value="Norway">Norway</option>
+                            <option value="Thailand">Thailand</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Bahamas, The">Bahamas, The</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Moldova">Moldova</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="China">China</option>
+                            <option value="Czech Republic">Czech Republic</option>
+                            <option value="Philippines">Philippines</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <label>Self-Employed</label><br>
+                        <select name="self_employed" id="self_employed">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <label>Family History</label><br>
+                        <select name="family_history" id="family_history">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <label>Treatment</label><br>
+                        <select name="treatment" id="treatment">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+
+                    <div style="margin-top: 30px;">
+                        <label>Work Interfere</label><br>
+                        <select name="work_interfere" id="work_interfere">
+                            <option value="Often">Often</option>
+                            <option value="Rarely">Rarely</option>
+                            <option value="Never">Never</option>
+                            <option value="Sometimes">Sometimes</option>
+                        </select>
+                    </div>
+
+
+                    <div style="margin-top: 30px;">
+                        <label>Remote work ?</label><br>
+                        <select name="remote_work" id="remote_work">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <label>Tech company</label><br>
+                        <select name="tech_company" id="tech_company">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <label>Benefit Available</label><br>
+                        <select name="benefit_available" id="benifit_available">
+                            <option value="Yes">Yes</option>
+                            <option value="Don't know">Don't know</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <label> Care Options</label><br>
+                        <select name="care_options" id="care_options">
+                            <option value="Yes">Yes</option>
+                            <option value="Not sure">Not sure</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <label>Wellness Program</label><br>
+                        <select name="wellness_program" id="wellness_program">
+                            <option value="Yes">Yes</option>
+                            <option value="Don't know">Don't know</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <label>Seek Help</label><br>
+                        <select name="seek_help" id="Seek_help">
+                            <option value="Yes">Yes</option>
+                            <option value="Don't know">Don't know</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <label>Leave ?</label><br>
+                        <select name="leave" id="leave">
+                            <option value="Somewhat easy">Somewhat easy</option>
+                            <option value="Don't know">Don't know</option>
+                            <option value="Somewhat difficult">Somewhat difficult</option>
+                            <option value="Very easy">Very easy</option>
+                            <option value="Very difficult">Very difficult</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <label>Mental Health Consequence</label><br>
+                        <select name="mental_health_consequence" id="mental_health_consequence">
+                            <option value="Yes">Yes</option>
+                            <option value="Maybe">Maybe</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <label>Physical Health Consequence</label><br>
+                        <select name="physical_health_consequence" id="physical_health_consequence">
+                            <option value="Yes">Yes</option>
+                            <option value="Maybe">Maybe</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <label>Supervisor</label><br>
+                        <select name="supervisor" id="supervisor">
+                            <option value="Yes">Yes</option>
+                            <option value="Some of them">Some of them</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+
+                    <div style="margin-top: 30px;">
+                        <label>Mental Health Interview</label><br>
+                        <select name="mental_health_interview" id="mental_health_interview">
+                            <option value="Yes">Yes</option>
+                            <option value="Maybe">Maybe</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+
+                    <div style="margin-top: 30px;">
+                        <label>Physical Health Interview</label><br>
+                        <select name="physical_health_interview" id="physical_health_interview">
+                            <option value="Yes">Yes</option>
+                            <option value="Maybe">Maybe</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <label>Mental vs Physical</label><br>
+                        <select name="mental_vs_physical" id="mental_vs_physical">
+                            <option value="Yes">Yes</option>
+                            <option value="Don't know">Don't know</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <input class="sub" type="submit" name="submit">
+                    </div>
+                </form>
+
+                <p style="color: white; text-align:center;margin-top:30px; display: none;" id="output">{{op}}</p>
+
+                <div style="margin: 50px auto; height:480px; width:800px;">
+                    <div style="width: 350px; float: left;">
+                        {{ stable_html|safe }}
+                        
+                    </div>
+                    <div style="width: 350px; float: right;">
+                        {{ unstable_html|safe }}
+                        
+                    </div>
+
+
+                </div>
+
+
+
+                <div style="display:none;" id="second_submit">
+                    <form action="/submit_dd" method="post">
+
+                        <label>Question 1 to 5:</label><br><br>
+                        <label>Feeling down, depressed, or hopeless:</label><br>
+                        <input type="number" name="dep1" id="dep1" max="10" required>
+                        <br><br>
+                        <label>Trouble falling or staying asleep, or sleeping too much: </label><br>
+                        <input type="number" name="dep2" id="dep2" max="10" required> <br><br>
+
+                        <label>Poor appetite or overeating</label><br>
+                        <input type="number" name="dep3" id="dep3" max="10" required> <br><br>
+
+                        <label>Feeling bad about yourself - or that you are a failure or have let yourself or your
+                            family down:</label><br>
+                        <input type="number" name="dep4" id="dep4" max="10" required> <br><br>
+
+                        <label>Thoughts that you would be better off dead, or of hurting yourself:</label> <br>
+                        <input type="number" name="dep5" id="dep5" max="10" required><br><br><br><br>
+
+
+
+                        <label>Question 6 to 10:</label><br><br>
+                        <label>Feeling nervous, anxious, or on edge:</label><br>
+                        <input type="number" name="anx1" id="anx1" max="10" required>
+                        <br><br>
+                        <label>Not being able to stop or control worrying: </label><br>
+                        <input type="number" name="anx2" id="anx2" max="10" required> <br><br>
+
+                        <label>Worrying too much about different things: </label><br>
+                        <input type="number" name="anx3" id="anx3" max="10" required> <br><br>
+
+                        <label>Becoming easily annoyed or irritable:</label><br>
+                        <input type="number" name="anx4" id="anx4" max="10" required> <br><br>
+
+                        <label>Feeling afraid, as if something awful might happen:</label> <br>
+                        <input type="number" name="anx5" id="anx5" max="10" required><br><br><br><br>
+
+
+
+
+                        <label>Question 10 to 15:</label><br><br>
+                        <label>Can you describe your mood swings? How often do they occur, and how long do they
+                            typically last?</label><br>
+                        <input type="number" name="bplr1" id="bplr1" max="10" required>
+                        <br><br>
+                        <label>During manic episodes, have you experienced symptoms such as racing thoughts, increased
+                            energy, talkativeness, and a decreased need for sleep? </label><br>
+                        <input type="number" name="bplr2" id="bplr2" max="10" required> <br><br>
+
+                        <label>Are there any triggers or patterns that seem to precede your mood swings?</label><br>
+                        <input type="number" name="bplr3" id="bplr3" max="10" required> <br><br>
+
+                        <label>Have you ever had psychotic symptoms, such as delusions or hallucinations, during manic
+                            or depressive episodes?</label><br>
+                        <input type="number" name="bplr4" id="bplr4" max="10" required> <br><br>
+
+                        <label>Are there any physical symptoms that accompany your mood swings, such as changes in
+                            appetite, headaches, or gastrointestinal issues?</label> <br>
+                        <input type="number" name="bplr5" id="bplr5" max="10" required><br><br> <br><br>
+
+
+
+
+
+
+
+                        <label>Question 16:</label><br><br>
+                        <label>Have you ever experienced a frightening or traumatic event?</label><br>
+                        <label>Type 'YES' if yes, otherwise type 'NO': </label><br>
+                        <input type="text" name="ptsd_p" id="ptsd_p" style="text-transform: lowercase;" > <br><br>
+                        <p onclick="dis_ptsd()" style="background-color: white; color: black; width: 80px;height: 22px; text-align: center;margin-left: 45px;">save</p>
+                        <div id="ptsd" style="display: none;">
+
+                            <label>Had nightmares about the event(s) or thought about the event(s) when you did not want
+                                to?</label><br>
+                            <input type="number" name="ptsd1" id="ptsd1" max="10" value="0" >
+                            <br><br>
+
+                            <label>Tried hard not to think about the event(s) or went out of your way to avoid
+                                situations that reminded you of the event(s) </label><br>
+                            <input type="number" name="ptsd2" id="ptsd2" max="10" value="0" > <br><br>
+
+                            <label>Been constantly on guard, watchful, or easily startled?</label><br>
+                            <input type="number" name="ptsd3" id="ptsd3" max="10" value="0" > <br><br>
+
+                            <label>Felt numb or detached from people, activities, or your surroundings??</label><br>
+                            <input type="number" name="ptsd4" id="ptsd4" max="10"  value="0"> <br><br>
+
+                            <label>Felt guilty or unable to stop blaming yourself or others for the event(s) or any
+                                problems the event(s) may have caused? </label> <br>
+                            <input type="number" name="ptsd5" id="ptsd5" max="10"  value="0"><br><br> <br><br>
+
+                        </div>
+                        <div style="text-align: center;"> 
+                            <input class="sub" type="submit" name="submit">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <br><br><br>
+        </section>
+        <br>
+    </div>
+
+    <script>
+        
+
+
+        function dis_ptsd(){
+            var dis_ptsd= document.getElementById('ptsd_p').value;
+            if (dis_ptsd == 'yes'){
+                document.getElementById('ptsd').style.display="block";
+            }
+        }
+
+        function dis(){
+            var x = document.getElementById('output').innerText
+            if (x>=0.5)
+            {
+                document.getElementById('second_submit').style.display='block';
+            }
+        }
+        dis()
+        
+    </script>
+
+</body>
+
+</html>
