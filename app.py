@@ -15,7 +15,7 @@ app = Flask(__name__)
 user_id = 'admin'
 user_pwd = 'admin123'
 
-print(os.getlogin())
+#print(os.getlogin())
 
 
 @app.route('/')
@@ -407,7 +407,7 @@ def submit_dd():
 
         # Show the plot
         plt.tight_layout()
-        plt.savefig(r'C:\Users\Dell\Desktop\PSYCHOLOGICAL INSTABILITY\static\uploads\bar_plot.png')
+        plt.savefig('static/uploads/bar_plot.png')
         plt.close()
 
         theta = np.linspace(0, 2 * np.pi, 360)
@@ -428,10 +428,10 @@ def submit_dd():
 
         ax2.set_rlim(0, np.max(radii))
 
-        plt.savefig(r'C:\Users\Dell\Desktop\PSYCHOLOGICAL INSTABILITY\static\uploads\polar_plot.png')
-
+        plt.savefig('static/uploads/polar_plot.png')
         return render_template('unstable.html')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
+
