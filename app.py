@@ -20,7 +20,7 @@ user_pwd = 'admin123'
 
 @app.route('/')
 def log():
-    return render_template('login.html')
+    return render_template('index.html')
 
 
 @app.route('/submit_log', methods=['GET', 'POST'])
