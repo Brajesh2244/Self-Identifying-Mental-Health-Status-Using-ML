@@ -41,14 +41,14 @@ export default function LandingPage() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <button className="btn-primary flex items-center justify-center gap-2 text-lg">
+            <Link href="/dashboard" className="btn-primary flex items-center justify-center gap-2 text-lg">
               <Activity className="w-5 h-5" />
               Start Assessment
-            </button>
-            <button className="btn-secondary flex items-center justify-center gap-2 text-lg">
+            </Link>
+            <Link href="/dashboard" className="btn-secondary flex items-center justify-center gap-2 text-lg">
               <Video className="w-5 h-5" />
               Recruiter Demo Mode
-            </button>
+            </Link>
           </motion.div>
         </div>
         
@@ -141,7 +141,7 @@ export default function LandingPage() {
               ))}
             </ul>
 
-            <button className="btn-primary">Try the Voice AI</button>
+            <Link href="/chat" className="btn-primary inline-block">Try the Voice AI</Link>
           </div>
           
           <div className="flex-1 w-full max-w-md relative">
