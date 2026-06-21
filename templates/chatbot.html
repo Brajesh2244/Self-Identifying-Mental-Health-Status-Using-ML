@@ -1,0 +1,74 @@
+<!-- Chatbot Widget -->
+<button class="chatbot-toggler"><i class="fas fa-comment-dots"></i></button>
+<div class="chatbot-widget">
+    <div class="chat-header">
+        <h3><i class="fas fa-robot"></i> Mental Health Assistant</h3>
+        <button class="close-chat"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chat-body" id="chatBody">
+        <div class="chat-msg bot">Hello! I am your Mental Health AI Assistant. Ask me about the dataset, how to use the tool, or general mental wellness tips.</div>
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="chatInput" placeholder="Type a message..." autocomplete="off">
+        <button id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
+
+<script>
+    const toggler = document.querySelector(".chatbot-toggler");
+    const widget = document.querySelector(".chatbot-widget");
+    const closeBtn = document.querySelector(".close-chat");
+    const chatBody = document.getElementById("chatBody");
+    const chatInput = document.getElementById("chatInput");
+    const sendBtn = document.getElementById("sendBtn");
+
+    toggler.addEventListener("click", () => widget.classList.toggle("show"));
+    closeBtn.addEventListener("click", () => widget.classList.remove("show"));
+
+    const botKnowledge = {
+        "hello": "Hi there! How can I help you understand this mental health tool today?",
+        "hi": "Hello! Need help with the assessment or understanding mental health indicators?",
+        "how it works": "You can go to the 'Diagnosis' section, fill out the form about your work and history, and our ML model will predict if you're stable or unstable.",
+        "what is this": "This is a Machine Learning based Self-Identifying Mental Health Status application.",
+        "work interfere": "If you have a mental health condition, 'work interfere' asks how often it affects your ability to work.",
+        "care options": "This refers to whether your employer provides mental health care options.",
+        "depression": "Depression is a mood disorder causing a persistent feeling of sadness and loss of interest. We can assess it in the second phase of the diagnosis.",
+        "anxiety": "Anxiety involves persistent worry or fear. Our tool evaluates anxiety levels if initial instability is detected.",
+        "ptsd": "PTSD (Post-Traumatic Stress Disorder) can develop after a stressful event. We use specific questions to gauge PTSD traits.",
+        "prevention": "Prevention includes seeking early help, maintaining work-life balance, getting enough sleep, and talking to professionals.",
+        "default": "I'm a basic assistant. I can answer questions about how this application works, its features (like work interference or care options), or basic mental health definitions."
+    };
+
+    function addMessage(msg, type) {
+        const div = document.createElement("div");
+        div.className = `chat-msg ${type}`;
+        div.innerText = msg;
+        chatBody.appendChild(div);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function handleSend() {
+        let userMsg = chatInput.value.trim().toLowerCase();
+        if (!userMsg) return;
+        
+        addMessage(chatInput.value, "user");
+        chatInput.value = "";
+
+        setTimeout(() => {
+            let found = false;
+            for (const key in botKnowledge) {
+                if (userMsg.includes(key)) {
+                    addMessage(botKnowledge[key], "bot");
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) addMessage(botKnowledge["default"], "bot");
+        }, 500);
+    }
+
+    sendBtn.addEventListener("click", handleSend);
+    chatInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") handleSend();
+    });
+</script>

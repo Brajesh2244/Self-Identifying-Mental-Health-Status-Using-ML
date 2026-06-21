@@ -1,61 +1,28 @@
 <!DOCTYPE html>
-<!-- Created By CodingNepal - www.codingnepalweb.com -->
 <html lang="en" dir="ltr">
-
 <head>
     <meta charset="UTF-8">
-    <title>Self Identifying Mental Health Status</title>
+    <title>Mental Health Assessment</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
-    <style>
-        select {
-            width: 550px;
-            height: 40px;
-            padding-left: 10px;
-            margin-top: 8px;
-        }
-
-        .sub {
-            height: 40px;
-            width: 200px;
-
-        }
-
-        label {
-            color: aqua;
-        }
-    </style>
 </head>
-
 <body>
-    <div style="height:fit-content; width: 100%;background-color:rgba(0, 0, 0, 0.7);">
-
-        <div class="side_bar">
-            <div class="profile">
-                <!-- <div style="padding-top: 30px;">
-            <img src="https://images.pexels.com/photos/8384596/pexels-photo-8384596.jpeg?cs=srgb&dl=pexels-tara-winstead-8384596.jpg&fm=jpg"
-          alt="profile_picture">
-          </div> -->
-                <div class="logo">Self Identifying Mental Health Status</div>
-            </div>
-            <ul>
-                <li><a href="home"><i class="fas fa-qrcode"></i>Home</a></li>
-                <li><a href="eda"><i class="fas fa-question-circle"></i>EDA</a></li>
-                <li><a class="active" href="detector"><i class="fas fa-heart"></i>Diagnosis</a></li>
-                <li><a href="model_parameter"><i class="fas fa-address-book"></i>Model Parameters</a></li>
-                <li><a href="/"><i class="bx bx-log-out"></i>log out</a></li>
-
-            </ul>
-            <!-- <div class="media_icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-        </div> -->
-
+    <div class="side_bar">
+        <div class="profile">
+            <div class="logo">Mental Health Assessment</div>
         </div>
-        <section style="background-color:rgba(0, 0, 0, 0.0);height:100%;">
+        <ul>
+            <li><a  href="home"><i class="fas fa-qrcode"></i>Home</a></li>
+            <li><a  href="eda"><i class="fas fa-chart-bar"></i>EDA</a></li>
+            <li><a class="active" href="detector"><i class="fas fa-heartbeat"></i>Diagnosis</a></li>
+            <li><a  href="model_parameter"><i class="fas fa-cogs"></i>Model Parameters</a></li>
+        </ul>
+    </div>
+
+    <section>
+        <div class="glass content_card">
+            
             <div style="height: auto; width: 900px; margin:auto;">
                 <form action="/submit_d" method="post" style="text-align: center; padding-top: 30px;">
                     <div>
@@ -405,11 +372,10 @@
                 </div>
             </div>
             <br><br><br>
-        </section>
-        <br>
-    </div>
-
-    <script>
+        
+        </div>
+    </section>
+<script>
         
 
 
@@ -431,6 +397,7 @@
         
     </script>
 
-</body>
 
+    {% include 'chatbot.html' %}
+</body>
 </html>
