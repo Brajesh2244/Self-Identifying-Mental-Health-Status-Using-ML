@@ -407,6 +407,8 @@ def submit_dd():
 
         # Show the plot
         plt.tight_layout()
+        import os
+        os.makedirs('static/uploads', exist_ok=True)
         plt.savefig('static/uploads/bar_plot.png')
         plt.close()
 
