@@ -39,15 +39,11 @@ export default function LandingPage() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex justify-center w-full mt-4"
           >
-            <Link href="/dashboard" className="btn-primary flex items-center justify-center gap-2 text-lg">
-              <Activity className="w-5 h-5" />
+            <Link href="/dashboard" className="btn-primary flex items-center justify-center gap-3 text-xl px-10 py-5 rounded-full shadow-[0_0_40px_rgba(14,165,233,0.4)] hover:shadow-[0_0_60px_rgba(14,165,233,0.6)] transition-all">
+              <Activity className="w-6 h-6" />
               Start Assessment
-            </Link>
-            <Link href="/dashboard" className="btn-secondary flex items-center justify-center gap-2 text-lg">
-              <Video className="w-5 h-5" />
-              Recruiter Demo Mode
             </Link>
           </motion.div>
         </div>

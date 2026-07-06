@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 import { Mic, Send, Brain, Paperclip, ChevronLeft, MoreVertical, Volume2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { chatbotKnowledge } from "../../data/chatbotKnowledge";
 
 export default function CompanionChat() {
   const [messages, setMessages] = useState([
-    { role: "assistant", content: "Welcome back! I noticed your stress score was Moderate during your last assessment on Nov 22. Would you like to review your 7-Day Action Plan or discuss something else today?", time: "10:00 AM" }
+    { role: "assistant", content: "Welcome! I am equipped with a medical knowledge base of over 25 comprehensive health topics. Ask me anything about your symptoms, diseases, or health metrics.", time: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) }
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -23,20 +24,37 @@ export default function CompanionChat() {
   const handleSend = (text: string) => {
     if (!text.trim()) return;
     
+    const now = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    
     // Add user message
-    setMessages(prev => [...prev, { role: "user", content: text, time: "10:01 AM" }]);
+    setMessages(prev => [...prev, { role: "user", content: text, time: now }]);
     setInput("");
     setIsTyping(true);
 
-    // Simulate AI response
+    // AI Logic (Find best match from dataset)
     setTimeout(() => {
+      let aiResponse = "I'm sorry, I don't have enough data on that specific query. Could you try asking about diabetes, heart health, sleep, or liver disease?";
+      
+      const lowerText = text.toLowerCase();
+      // Search the dataset for matches
+      const match = chatbotKnowledge.find(qa => 
+        lowerText.includes(qa.question.toLowerCase().replace("?", "")) || 
+        qa.question.toLowerCase().split(" ").some(word => word.length > 4 && lowerText.includes(word))
+      );
+      
+      if (match) {
+        aiResponse = match.answer;
+      } else if (lowerText.includes("hello") || lowerText.includes("hi")) {
+        aiResponse = "Hello! How can I assist you with your health today?";
+      }
+
       setMessages(prev => [...prev, { 
         role: "assistant", 
-        content: "I can certainly help with that. Since you've been working on managing stress, I recommend starting with a 10-minute mindfulness exercise. Would you like me to guide you through one right now?", 
-        time: "10:01 AM" 
+        content: aiResponse, 
+        time: now 
       }]);
       setIsTyping(false);
-    }, 2000);
+    }, 1500);
   };
 
   return (
